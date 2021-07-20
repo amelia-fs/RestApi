@@ -15,41 +15,41 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class KontakAdapter(private val listku: ArrayList<KontakData>): RecyclerView.Adapter<KontakAdapter.KontakViewHolder>(){
+class MahasiswaAdapter(private val listku: ArrayList<KontakData>): RecyclerView.Adapter<MahasiswaAdapter.KontakViewHolder>(){
 
     inner class KontakViewHolder(viewku: View): RecyclerView.ViewHolder(viewku) {
-        var tvId: TextView = viewku.findViewById(R.id.tv_id)
-        var tvNama: TextView = viewku.findViewById(R.id.tv_judul)
-        var tvNomor: TextView = viewku.findViewById(R.id.tv_kategori)
-        var tvJumlah: TextView = viewku.findViewById(R.id.tv_stok)
+        var tvNim: TextView = viewku.findViewById(R.id.tv_nim)
+        var tvNama: TextView = viewku.findViewById(R.id.tv_nama)
+        var tvJurusan: TextView = viewku.findViewById(R.id.tv_jurusan)
+        var tvTlp: TextView = viewku.findViewById(R.id.tv_tlp)
         var btnDelte: ImageButton = viewku.findViewById(R.id.btn_data_del)
         var btnUpdate: ImageButton = viewku.findViewById(R.id.btn_data_edit)
-        var apiIterface: ServiceInterface? = Repository.getDataAPI().create(ServiceInterface::class.java)
+        var apiIterface: ServiceInterfaceMhs? = Repository.getDataAPI().create(ServiceInterfaceMhs::class.java)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KontakViewHolder {
-        val viewView: View = LayoutInflater.from(parent.context).inflate(R.layout.data_item, parent, false)
+        val viewView: View = LayoutInflater.from(parent.context).inflate(R.layout.data_mhs, parent, false)
         return KontakViewHolder(viewView)
     }
 
     override fun onBindViewHolder(holder: KontakViewHolder, position: Int) {
         val dataku = listku[position]
-        holder.tvId.text = dataku.id.toString()
-        holder.tvNama.text = dataku.judul
-        holder.tvNomor.text = dataku.kategori
-        holder.tvJumlah.text = dataku.stok.toString()
+        holder.tvNim.text = dataku.nim.toString()
+        holder.tvNama.text = dataku.nama
+        holder.tvJurusan.text = dataku.jurusan
+        holder.tvTlp.text = dataku.tlp
         holder.btnUpdate.setOnClickListener {
             val bundle= Bundle()
-            val pindah = Intent(holder.itemView.context, UpdateActivity::class.java)
-            bundle.putString("id", dataku.id.toString())
-            bundle.putString("judul", dataku.judul.toString())
-            bundle.putString("kategori", dataku.kategori.toString())
-            bundle.putString("stok", dataku.stok.toString())
+            val pindah = Intent(holder.itemView.context, UpdateMhs::class.java)
+            bundle.putString("nim", dataku.nim.toString())
+            bundle.putString("nama", dataku.nama.toString())
+            bundle.putString("jurusan", dataku.jurusan.toString())
+            bundle.putString("tlp", dataku.tlp.toString())
             pindah.putExtras(bundle)
             holder.itemView.context.startActivity(pindah)
         }
         holder.btnDelte.setOnClickListener {
-            holder.apiIterface!!.deleteKontak(dataku.id!!).enqueue(object : Callback<KontakData>{
+            holder.apiIterface!!.deleteMahasiswa(dataku.nim!!).enqueue(object : Callback<KontakData>{
                 override fun onResponse(call: Call<KontakData>, response: Response<KontakData>) {
                     if (response.isSuccessful){
                         listku.removeAt(position)

@@ -6,21 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".UpdateActivity"
     android:orientation="vertical"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="@drawable/bg">
     <TextView
         style="@style/tv_form"
-        android:text="Nama"/>
+        android:text="Judul Buku"/>
     <EditText
         android:id="@+id/et_up_name"
         style="@style/edit_form"
         android:hint="Name Here!!"/>
     <TextView
         style="@style/tv_form"
-        android:text="Nomor"/>
+        android:text="Kategori Buku"/>
     <EditText
         android:id="@+id/et_up_number"
         style="@style/edit_form"
-        android:hint="Number Here!!"/>
+        android:hint="Category Here!!"/>
+    <TextView
+        style="@style/tv_form"
+        android:text="Stok Buku"/>
+    <EditText
+        android:id="@+id/et_up_jumlah"
+        style="@style/edit_form"
+        android:hint="Stok Here!!"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

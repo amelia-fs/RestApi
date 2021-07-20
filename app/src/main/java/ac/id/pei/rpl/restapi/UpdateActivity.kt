@@ -15,8 +15,10 @@ class UpdateActivity : AppCompatActivity() {
     lateinit var btnCancel:Button
     lateinit var etName: EditText
     lateinit var etNUmber: EditText
+    lateinit var etJumlah: EditText
     lateinit var valName: String
     lateinit var valNumber: String
+    lateinit var valJumlah: String
     lateinit var valId: String
     lateinit var apiService: ServiceInterface
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,22 +33,25 @@ class UpdateActivity : AppCompatActivity() {
         btnCancel = findViewById(R.id.btn_up_cancel)
         etName = findViewById(R.id.et_up_name)
         etNUmber = findViewById(R.id.et_up_number)
+        etJumlah = findViewById(R.id.et_up_jumlah)
         apiService = Repository.getDataAPI().create(ServiceInterface::class.java)
     }
     fun getMyData(){
         val myValue = intent.extras
         if (myValue!=null){
-            valName = myValue.getString("nama").toString()
-            valNumber = myValue.getString("nomor").toString()
+            valName = myValue.getString("judul").toString()
+            valNumber = myValue.getString("kategori").toString()
+            valJumlah = myValue.getString("stok").toString()
             valId = myValue.getString("id").toString()
         }
     }
     fun myfunction(){
         etName.setText(valName)
         etNUmber.setText(valNumber)
+        etJumlah.setText(valJumlah)
         val pindah = Intent(this, MainActivity::class.java)
         btnSubmit.setOnClickListener {
-            apiService.updateKontak(valId.toInt(), etName.text.toString(), etNUmber.text.toString()).enqueue(object : Callback<KontakData>{
+            apiService.updateKontak(valId.toInt(), etName.text.toString(), etNUmber.text.toString(), etJumlah.text.toString()).enqueue(object : Callback<KontakData>{
                 override fun onResponse(call: Call<KontakData>, response: Response<KontakData>) {
                     startActivity(pindah)
                     Toast.makeText(baseContext, "Update Data Success", Toast.LENGTH_SHORT).show()

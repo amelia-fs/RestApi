@@ -4,31 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddActivity"
+    tools:context=".AddKembali"
     android:orientation="vertical"
     android:gravity="center_vertical"
     android:background="@drawable/bg">
     <TextView
         style="@style/tv_form"
+        android:text="Tanggal Kembali"/>
+    <EditText
+        android:id="@+id/et_add_tglke"
+        style="@style/edit_form"
+        android:hint="yyyy/dd/mm"/>
+    <TextView
+        style="@style/tv_form"
+        android:text="NIM Mahasiswa"/>
+    <EditText
+        android:id="@+id/et_add_nimmm"
+        style="@style/edit_form"
+        android:hint="RegNumber Here!!"/>
+    <TextView
+        style="@style/tv_form"
         android:text="Judul Buku"/>
     <EditText
-        android:id="@+id/et_add_name"
+        android:id="@+id/et_add_judulbu"
         style="@style/edit_form"
-        android:hint="Name Book"/>
-    <TextView
-        style="@style/tv_form"
-        android:text="Kategori Buku"/>
-    <EditText
-        android:id="@+id/et_add_number"
-        style="@style/edit_form"
-        android:hint="Category Here!!"/>
-    <TextView
-        style="@style/tv_form"
-        android:text="Stok Buku"/>
-    <EditText
-        android:id="@+id/et_add_jumlah"
-        style="@style/edit_form"
-        android:hint="Stok Here!!"/>
+        android:hint="Book Here!!"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

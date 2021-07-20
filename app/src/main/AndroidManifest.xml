@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="ac.id.pei.rpl.restapi">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logoku"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logoku"
         android:supportsRtl="true"
         android:theme="@style/Theme.RestAPI"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UpdateActivity"></activity>
-        <activity android:name=".AddActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".UpdateKembali"></activity>
+        <activity android:name=".AddKembali" />
+        <activity android:name=".Kembali" />
+        <activity android:name=".UpdatePinjam" />
+        <activity android:name=".AddPinjam" />
+        <activity android:name=".Pinjam" />
+        <activity android:name=".UpdateMhs" />
+        <activity android:name=".AddMhs" />
+        <activity android:name=".Mahasiswa" />
+        <activity android:name=".MenuUtama" />
+        <activity android:name=".ActivityLogin" />
+        <activity android:name=".ActivitySplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".UpdateActivity" />
+        <activity android:name=".AddActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

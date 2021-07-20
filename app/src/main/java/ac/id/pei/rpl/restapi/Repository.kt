@@ -5,7 +5,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-const val BASEURL = "https://192.168.56.1/rest_api_ci-amel/index.php/kontak"
+const val BASEURL = "https://sudoowl.site/api/mahasiswa_2018/index.php/api/UAS2021_20180402/"
 class Repository {
     companion object{
         private var retrofit: Retrofit? =null
